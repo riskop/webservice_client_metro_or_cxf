@@ -1,4 +1,4 @@
-package webservice_client_cxf_spring;
+package webservice_client_metro_or_cxf;
 
 import static org.junit.Assert.*;
 
