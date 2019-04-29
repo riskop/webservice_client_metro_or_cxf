@@ -79,8 +79,8 @@
                             <goal>wsimport</goal>
                         </goals>
                         <configuration>
-                        	<keep>true</keep>
                             <!--
+                        	<keep>true</keep>
                             <extension>true</extension>
                             <bindingDirectory>src/main/resources/bindings</bindingDirectory>
                             <bindingFiles>
