@@ -1,0 +1,102 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>webservice_client_cxf_spring</groupId>
+	<artifactId>webservice_client_cxf_spring</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+
+	<dependencies>
+        <!-- 
+ -->
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-frontend-jaxws</artifactId>
+            <version>3.1.12</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-transports-http</artifactId>
+            <version>3.1.12</version>
+        </dependency>
+        
+        <!-- https://mvnrepository.com/artifact/junit/junit -->
+		<dependency>
+		    <groupId>junit</groupId>
+		    <artifactId>junit</artifactId>
+		    <version>4.12</version>
+		    <scope>test</scope>
+		</dependency>
+        
+	</dependencies>
+	
+    <build>
+        <plugins>
+        <!-- 
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>jaxb2-maven-plugin</artifactId>
+                <version>2.2</version>
+                <executions>
+                    <execution>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>xjc</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <sources>
+                        <source>src/main/resources/xsd</source>
+                    </sources>
+                    <outputDirectory>src/main/java</outputDirectory>
+                    <schemaDirectory>src/main/resources/xsd</schemaDirectory>
+                    <clearOutputDir>true</clearOutputDir>
+                    <extension>true</extension>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.jvnet.jaxb2_commons</groupId>
+                        <artifactId>jaxb2-basics</artifactId>
+                        <version>0.6.4</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>org.jvnet.jaxb2_commons</groupId>
+                        <artifactId>jaxb2-basics-annotate</artifactId>
+                        <version>0.6.4</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+             -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>jaxws-maven-plugin</artifactId>
+                <version>1.10</version>
+                <executions>
+                    <execution>
+                        <id>a</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>wsimport</goal>
+                        </goals>
+                        <configuration>
+                        	<keep>true</keep>
+                            <!--
+                            <extension>true</extension>
+                            <bindingDirectory>src/main/resources/bindings</bindingDirectory>
+                            <bindingFiles>
+                                <bindingFiles>jaxb-bindings.xml</bindingFiles>
+                                <bindingFile>jaxws-bindings.xml</bindingFile>
+                            </bindingFiles>
+                            -->
+                            <!-- 
+                            <sourceDestDir>${project.build.directory}/generated-sources/wsimport</sourceDestDir>
+                             -->
+                            <wsdlDirectory>src/main/resources</wsdlDirectory>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
